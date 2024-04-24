@@ -9,6 +9,8 @@
 
 Install requirements from file requirements.txt
 
+change Email_Id and Password with your values in file constant.py file 
+
 <br>
 
 to create exe of py file run command
