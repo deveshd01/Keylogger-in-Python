@@ -1,28 +1,52 @@
 # Keylogger-in-Python
-  - Runs silently in the background, 
-  - Auto-Launch on restart
-  - record **key press** logs
-  - send those logs by mail (in every 1 hour)
+
+A Python-based keylogger that runs silently in the background, records keypress logs, and sends those logs via email every hour. It also supports auto-launch on system restart.
 
 
-<br>
+### ⚠️ Disclaimer
 
-Install requirements from file requirements.txt
+**This project is for educational purposes only.** Keyloggers can be used for malicious intent, which is illegal and unethical. Make sure you have permission to monitor and log keystrokes on any device before running this script. Misuse of this tool could result in legal consequences.
 
-change Email_Id and Password with your values in file constant.py file 
+## Features
+- Runs silently in the background
+- Auto-launch on restart
+- Records key press logs
+- Sends logs via email every hour
 
-<br>
+## Requirements
+- Python 3.x
+- `pynput` library
+- `smtplib` for email functionality
 
-to create exe of py file run command
+
+## Configuration
+Before running the keylogger, update the email credentials in `constant.py` with your own email ID and password:
+```bash
+EMAIL_ADDRESS = 'your_email@example.com'
+EMAIL_PASSWORD = 'your_password'
+```
+
+## Create Executable
+To create an executable from the Python script, use `pyinstaller`:
+```bash
 pyinstaller --noconsole --onefile Keylogger.py
+```
+This will create an executable that runs without a console window.
 
-<br>
+## Auto-launch on System Start
+To auto-launch the keylogger on computer startup, follow these steps:
+  1. Copy the executable file to the following location:
+  ```bash
+  C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+  ```
+  2. The keylogger will now start automatically whenever the system restarts.
 
-to auto launch exe on computer start
-paste exe file at location C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
-<br>
+## Stopping the Keylogger
+If you need to stop the keylogger:
+  1. Open Task Manager (`Ctrl + Shift + Esc`), find the process named `keylogger`, and end it.
+  2. To prevent the keylogger from auto-launching on restart, delete the keylogger executable from the Startup folder:
+  ```bash
+  C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+  ```
 
-To stop execution of this Key-Logger 
-  1. go to task manager (ctrl + shift + esc)  and End process with name keylogger
-  2. delete Keylogger file from Startup path (so that automatically not launch on restart)
